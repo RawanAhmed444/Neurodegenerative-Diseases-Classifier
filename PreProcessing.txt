@@ -1,0 +1,5 @@
+----------- First Trial -------------
+
+Alzheimer --> sharpening
+normal --> Apply CLAHE 
+Parkinson --> Apply CLAHE

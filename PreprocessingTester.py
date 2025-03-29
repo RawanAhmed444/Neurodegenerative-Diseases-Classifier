@@ -2,20 +2,30 @@ import sys
 import os
 import cv2
 import numpy as np
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QHBoxLayout, QCheckBox, QFileDialog
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QCheckBox, QComboBox
 from PyQt5.QtGui import QPixmap, QImage
 
 class ImagePreprocessorApp(QWidget):
     def __init__(self):
         super().__init__()
         self.image_index = 0
-        self.image_paths = self.load_images("Data/parkinson")
+        self.classes = ["normal", "alzheimer", "parkinson"]  
+        self.base_folder = "Data"  
+        self.image_paths = []  
         self.initUI()
+        self.load_images_for_class(self.classes[0])  
         self.load_image()
 
     def initUI(self):
         layout = QVBoxLayout()
-        
+
+        # ComboBox for selecting class
+        self.class_combo = QComboBox()
+        self.class_combo.addItems(self.classes) 
+        self.class_combo.currentIndexChanged.connect(self.on_class_changed) 
+        layout.addWidget(QLabel("Select Class:"))
+        layout.addWidget(self.class_combo)
+
         # Image Labels
         self.original_label = QLabel("Original Image")
         self.processed_label = QLabel("Processed Image")
@@ -47,16 +57,41 @@ class ImagePreprocessorApp(QWidget):
         self.setLayout(layout)
         self.setWindowTitle("Image Preprocessing App")
 
-    def load_images(self, folder):
-        return [os.path.join(folder, f) for f in os.listdir(folder) if f.endswith(('png', 'jpg', 'jpeg'))]
-    
+    def load_images_for_class(self, class_name):
+        """Load images for the selected class."""
+        folder = os.path.join(self.base_folder, class_name)
+        if not os.path.exists(folder):
+            print(f"Folder {folder} does not exist!")
+            self.image_paths = []
+            return
+        self.image_paths = [os.path.join(folder, f) for f in os.listdir(folder) if f.endswith(('png', 'jpg', 'jpeg'))]
+        self.image_index = 0  
+        if not self.image_paths:
+            print(f"No images found in {folder}!")
+            self.original_label.clear()
+            self.processed_label.clear()
+
+    def on_class_changed(self):
+        """Handle class selection change from ComboBox."""
+        selected_class = self.class_combo.currentText()
+        self.load_images_for_class(selected_class)
+        self.load_image()
+
     def load_image(self):
-        if self.image_index < len(self.image_paths):
+        """Load the current image based on the image index."""
+        if self.image_paths and self.image_index < len(self.image_paths):
             img_path = self.image_paths[self.image_index]
             self.original_img = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
-            self.display_image(self.original_label, self.original_img)
-    
+            if self.original_img is not None:
+                self.display_image(self.original_label, self.original_img)
+            else:
+                print(f"Failed to load image: {img_path}")
+                self.original_label.clear()
+        else:
+            self.original_label.clear()
+
     def apply_preprocessing(self):
+        """Apply selected preprocessing techniques to the image."""
         if self.original_img is None:
             return
         processed_img = self.original_img.copy()
@@ -78,11 +113,14 @@ class ImagePreprocessorApp(QWidget):
         self.display_image(self.processed_label, processed_img)
     
     def next_image(self):
-        self.image_index = (self.image_index + 1) % len(self.image_paths)
-        self.load_image()
-        self.processed_label.clear()
+        """Load the next image in the list."""
+        if self.image_paths:
+            self.image_index = (self.image_index + 1) % len(self.image_paths)
+            self.load_image()
+            self.processed_label.clear()
     
     def display_image(self, label, img):
+        """Display an image in a QLabel."""
         height, width = img.shape
         bytes_per_line = width
         q_image = QImage(img.data, width, height, bytes_per_line, QImage.Format_Grayscale8)
