@@ -1,0 +1,11 @@
+Method,Selected_Features,Optimal_k,Best_Score
+ttest,mean,10,0.7985507246376811
+ttest,std,10,0.7985507246376811
+ttest,skewness,10,0.7985507246376811
+ttest,kurtosis,10,0.7985507246376811
+ttest,entropy,10,0.7985507246376811
+ttest,wavelet_HL_entropy,10,0.7985507246376811
+ttest,glcm_contrast,10,0.7985507246376811
+ttest,p75,10,0.7985507246376811
+ttest,p90,10,0.7985507246376811
+ttest,wavelet_HH_std,10,0.7985507246376811
