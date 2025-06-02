@@ -80,5 +80,5 @@ Further details on results, including confusion matrices and ROC curves, can be 
 
 * **Kareem Abdel Nabi:** [GitHub Profile](https://github.com/karreemm)
 * **Youssef Aboelela:** [GitHub Profile](https://github.com/Youssef-Abo-El-Ela)
-* **RawanAhmed444**: [GitHub Profile](https://github.com/RawanAhmed444)
+* **Rawan Shoaib**: [GitHub Profile](https://github.com/RawanAhmed444)
 * **Mostafa Ayman:** [GitHub Profile](https://github.com/mostafa-aboelmagd)
