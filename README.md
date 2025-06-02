@@ -48,9 +48,11 @@ The project involves several key stages:
 4.  **Classification:** A Support Vector Machine (SVM) model utilizing a One-Vs-Rest strategy for multi-class classification was trained. The RBF kernel function was used to map non-linear data into a higher dimensional space where separation is easier. The SVM classifier achieved an overall accuracy of 87.5% in distinguishing between Alzheimer's, Parkinson's, and normal brain MRI images.
 
     ![Confusion Matrix](https://github.com/user-attachments/assets/8afccc99-c605-49ae-a0b9-a3e009f6a34c)
+    
     *Confusion Matrix*
 
     ![ROC Curve](https://github.com/user-attachments/assets/bf94808a-a6df-4357-8b03-52057d51d7c3)
+    
     *ROC Curve* 
 
 ## Dataset
