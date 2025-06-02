@@ -12,10 +12,10 @@ The project involves several key stages:
 
 1.  **Data Preprocessing Evaluation:** A systematic evaluation of 23 different preprocessing techniques was conducted to optimize classification accuracy. Standard Histogram Equalization was identified as the best preprocessing approach, achieving 80% classification accuracy during this phase.
 
-    ![Figure 3: Data before and after applying Histogram Equalization](https://raw.githubusercontent.com/karreemm/Neurodegenerative-Diseases-Classifier/main/images/fig3.png)
+    ![Data before and after applying Histogram Equalization](https://github.com/user-attachments/assets/9ac614d5-5806-4f29-bf3e-d4f86d14c638)
     *Figure 3: Data before and after applying Histogram Equalization*
 
-    ![Figure 4: Overall scores for different preprocessing techniques](https://raw.githubusercontent.com/karreemm/Neurodegenerative-Diseases-Classifier/main/images/fig4.png)
+    ![Overall scores for different preprocessing techniques](https://github.com/user-attachments/assets/cd80f7c0-e14d-4bf1-be71-c16759ae9eba)
     *Figure 4: Overall scores for different preprocessing techniques*
 
 2.  **Feature Extraction:** A comprehensive set of features were extracted from the 2D MRI slices, including:
@@ -26,7 +26,7 @@ The project involves several key stages:
     * Edge and Gradient Features (using Sobel and Canny operators) 
     * Gray Level Run Length Matrix (GLRLM) Features 
 
-    ![Figure 2: Distribution of Selected Features Across Diagnostic Classes](https://raw.githubusercontent.com/karreemm/Neurodegenerative-Diseases-Classifier/main/images/fig2.png)
+    ![Distribution of Selected Features Across Diagnostic Classes](https://github.com/user-attachments/assets/615d9467-e126-40ca-a90d-ac5769849241)
     *Figure 2: Distribution of Selected Features Across Diagnostic Classes*
 
 3.  **Feature Selection:** Multiple feature selection methods (Fisher Score, Mutual Information, Random Forest Feature Importance, Correlation Coefficient, Lasso Regression, Recursive Feature Elimination (RFE), T-Test, Elastic Net, SVM, Gradient Boosting) were employed to identify the most informative features. The T-Test emerged as the most effective method, yielding the highest cross-validation accuracy of 0.799 with 10 features.
@@ -45,12 +45,12 @@ The project involves several key stages:
     | Gradient Boosting               | 30                      | 0.792                  |
     *Table I: Feature Selection Methods and Performance* 
 
-4.  **Classification:** A Support Vector Machine (SVM) model utilizing a One-Vs-Rest strategy for multi-class classification was trained. The RBF kernel function was used to map non-linear data into a higher dimensional space where separation is easier[cite: 67, 76, 85]. The SVM classifier achieved an overall accuracy of 87.5% in distinguishing between Alzheimer's, Parkinson's, and normal brain MRI images.
+4.  **Classification:** A Support Vector Machine (SVM) model utilizing a One-Vs-Rest strategy for multi-class classification was trained. The RBF kernel function was used to map non-linear data into a higher dimensional space where separation is easier. The SVM classifier achieved an overall accuracy of 87.5% in distinguishing between Alzheimer's, Parkinson's, and normal brain MRI images.
 
-    ![Figure (a) Confusion Matrix](https://raw.githubusercontent.com/karreemm/Neurodegenerative-Diseases-Classifier/main/images/confusion_matrix.png)
+    ![Confusion Matrix](https://github.com/user-attachments/assets/8afccc99-c605-49ae-a0b9-a3e009f6a34c)
     *Figure (a) Confusion Matrix*
 
-    ![Figure (b) ROC Curve](https://raw.githubusercontent.com/karreemm/Neurodegenerative-Diseases-Classifier/main/images/roc_curve.png)
+    ![ROC Curve](https://github.com/user-attachments/assets/bf94808a-a6df-4357-8b03-52057d51d7c3)
     *Figure (b) ROC Curve* 
 
 ## Dataset
@@ -61,9 +61,6 @@ Our dataset consists of brain medical images categorized into three classes: Alz
 * Normal controls: 2699 images 
 
 The dataset was divided using stratified sampling with an 80% training set and 20% testing set. A balanced subset of 50 images per class was used for the preprocessing evaluation phase to ensure fair comparison between techniques.
-
-![Figure 1: Three Dataset Images Examples](https://raw.githubusercontent.com/karreemm/Neurodegenerative-Diseases-Classifier/main/images/fig1.png)
-*Figure 1: Three Dataset Images Examples* 
 
 ## Results
 
