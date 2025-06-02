@@ -13,10 +13,10 @@ The project involves several key stages:
 1.  **Data Preprocessing Evaluation:** A systematic evaluation of 23 different preprocessing techniques was conducted to optimize classification accuracy. Standard Histogram Equalization was identified as the best preprocessing approach, achieving 80% classification accuracy during this phase.
 
     ![Data before and after applying Histogram Equalization](https://github.com/user-attachments/assets/9ac614d5-5806-4f29-bf3e-d4f86d14c638)
-    *Figure 3: Data before and after applying Histogram Equalization*
+    *Data before and after applying Histogram Equalization*
 
     ![Overall scores for different preprocessing techniques](https://github.com/user-attachments/assets/cd80f7c0-e14d-4bf1-be71-c16759ae9eba)
-    *Figure 4: Overall scores for different preprocessing techniques*
+    *Overall scores for different preprocessing techniques*
 
 2.  **Feature Extraction:** A comprehensive set of features were extracted from the 2D MRI slices, including:
     * First-Order Statistical Features (e.g., mean, standard deviation, skewness, kurtosis, entropy, percentiles, min, max, range) 
@@ -27,7 +27,7 @@ The project involves several key stages:
     * Gray Level Run Length Matrix (GLRLM) Features 
 
     ![Distribution of Selected Features Across Diagnostic Classes](https://github.com/user-attachments/assets/615d9467-e126-40ca-a90d-ac5769849241)
-    *Figure 2: Distribution of Selected Features Across Diagnostic Classes*
+    *Distribution of Selected Features Across Diagnostic Classes*
 
 3.  **Feature Selection:** Multiple feature selection methods (Fisher Score, Mutual Information, Random Forest Feature Importance, Correlation Coefficient, Lasso Regression, Recursive Feature Elimination (RFE), T-Test, Elastic Net, SVM, Gradient Boosting) were employed to identify the most informative features. The T-Test emerged as the most effective method, yielding the highest cross-validation accuracy of 0.799 with 10 features.
 
@@ -48,10 +48,10 @@ The project involves several key stages:
 4.  **Classification:** A Support Vector Machine (SVM) model utilizing a One-Vs-Rest strategy for multi-class classification was trained. The RBF kernel function was used to map non-linear data into a higher dimensional space where separation is easier. The SVM classifier achieved an overall accuracy of 87.5% in distinguishing between Alzheimer's, Parkinson's, and normal brain MRI images.
 
     ![Confusion Matrix](https://github.com/user-attachments/assets/8afccc99-c605-49ae-a0b9-a3e009f6a34c)
-    *Figure (a) Confusion Matrix*
+    *Confusion Matrix*
 
     ![ROC Curve](https://github.com/user-attachments/assets/bf94808a-a6df-4357-8b03-52057d51d7c3)
-    *Figure (b) ROC Curve* 
+    *ROC Curve* 
 
 ## Dataset
 
